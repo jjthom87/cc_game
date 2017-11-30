@@ -1,0 +1,3 @@
+rootProject.name = 'cc_game_one'
+
+include ':app'
