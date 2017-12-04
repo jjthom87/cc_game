@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Images from './images/index';
+import Statuses from './images/ci';
 
 export default class App extends Component<{}> {
   constructor(props, context) {
@@ -87,9 +88,7 @@ export default class App extends Component<{}> {
           if(this.state.letterSelected === Images[random].firstLetter){
             return (
               <View style={styles.container}>
-                <Text style={styles.welcome}>
-                  You are CORRECT!
-                </Text>
+                <Image style={styles.statusImage} source={Statuses[0].image}/>
                 <TouchableOpacity onPress={this.nextPress.bind(this)}>
                   {buttonChange()}
                 </TouchableOpacity>
@@ -98,9 +97,7 @@ export default class App extends Component<{}> {
           } else {
             return (
               <View style={styles.container}>
-                <Text style={styles.welcome}>
-                  You are INCORRECT!
-                </Text>
+                <Image style={styles.statusImage} source={Statuses[1].image}/>
                 <TouchableOpacity onPress={this.nextPress.bind(this)}>
                   {buttonChange()}
                 </TouchableOpacity>
@@ -154,6 +151,13 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '10%',
+  },
+  statusImage: {
+    height: 175,
+    width: 200,
     justifyContent: 'center',
     alignItems: 'center',
     margin: '10%',
