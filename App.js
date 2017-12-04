@@ -34,6 +34,13 @@ export default class App extends Component<{}> {
       letterSelected: undefined
     })
   }
+  startOver(){
+    this.setState({
+      correct: 0,
+      imagesIndex: 0,
+      letterSelected: undefined
+    })
+  }
   render() {
     function shuffleArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
@@ -104,7 +111,10 @@ export default class App extends Component<{}> {
       } else {
         return (
           <View style={styles.container}>
-            <Text>You got {this.state.correct} correct</Text>
+            <Text style={styles.welcome}>You got {this.state.correct} out of 10 correct</Text>
+            <TouchableOpacity onPress={this.startOver.bind(this)}>
+              <Text style={styles.startOverButton}>Start Over</Text>
+            </TouchableOpacity>
           </View>
         )
       }
@@ -150,6 +160,11 @@ const styles = StyleSheet.create({
   },
   nextButton: {
     color: '#964da3',
+    fontSize: 35,
+  },
+  startOverButton: {
+    backgroundColor: '#964da3',
+    color: 'white',
     fontSize: 35,
   }
 });
